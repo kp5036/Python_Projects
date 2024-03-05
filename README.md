@@ -11,6 +11,7 @@ Academix is a cutting-edge online school portal designed to revolutionize educat
 **Features:**
 
 _1. Course Management:_
+
 Catalog Management: Acadmix empowers administrators to effortlessly manage course catalogs, ensuring accurate and up-to-date information for students and staff.
 Efficient Course Enrollment: Students can seamlessly enroll in courses through their personalized accounts, enhancing the academic experience.
 
