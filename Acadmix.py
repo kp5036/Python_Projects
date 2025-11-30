@@ -554,3 +554,28 @@ class StudentAccount:
         return "Name: {}\nID: {}\nBalance: ${}".format(self.__student.name, self.__student.id, self.__balance)
 
     __repr__ = __str__
+
+if __name__ == "__main__":
+    # Simple demo of the system
+    C = Catalog()
+    C._loadCatalog("cmpsc_catalog_small.csv")
+
+    s1 = Student("Krish Patel", "123-45-6789", "Freshman")
+    s1.registerSemester()
+    print("Created student:", s1)
+
+    print("\nEnrolling in CMPSC 132 and MATH 230...")
+    print(s1.enrollCourse("CMPSC 132", C))
+    print(s1.enrollCourse("MATH 230", C))
+
+    print("\nCurrent semester courses:")
+    print(s1.semesters[len(s1.semesters)])
+
+    print("\nAccount balance after tuition charges:", s1.account.balance)
+
+    print("\nRequesting a loan of $4000...")
+    s1.getLoan(4000)
+    print("Account balance after loan:", s1.account.balance)
+
+    print("\nFinal account summary:")
+    print(s1.account)
