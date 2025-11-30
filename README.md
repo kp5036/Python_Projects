@@ -10,7 +10,7 @@ charging tuition, and applying loans to a student account.
 ---
 ## Demo Video
 
-[![Watch the demo] --> https://youtu.be/9YM_wZx23n8?si=EjUyxVSufFdqLHBI )
+[![Watch the demo](https://img.youtube.com/vi/9YM_wZx23n8/0.jpg)](https://www.youtube.com/watch?v=9YM_wZx23n8)
 ## Features
 
 - **Course & Catalog Management**
