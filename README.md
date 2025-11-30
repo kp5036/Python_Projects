@@ -1,43 +1,66 @@
-# Python_Projects
-Discover a collection of diverse Python projects showcasing programming skills and expertise, from beginner-friendly utilities to complex systems, in the Python_Projects repository.
+# Acadmix – University Enrollment & Billing System (Python)
 
-# Acadmix => Project_1
-Project Title: Acadmix - Revolutionizing Education Management
+Acadmix is a Python-based academic management system that models how a university might handle
+courses, catalogs, semesters, students, staff, tuition billing, and loans.
 
-**Overview:**
+The project is built with object-oriented design and focuses on the **backend logic** of a student
+information system: adding/removing courses, registering semesters, enrolling/dropping classes,
+charging tuition, and applying loans to a student account.
 
-Academix is a cutting-edge online school portal designed to revolutionize education management and streamline academic processes in educational institutions. Crafted with precision and ingenuity, this project serves as a testament to the developer's skills and dedication, aimed at capturing the interest of internship employers.
+---
 
-**Features:**
+## Features
 
-_1. Course Management:_
+- **Course & Catalog Management**
+  - `Course` class for course ID, name, and credits
+  - `Catalog` class to store course offerings and load them from a CSV file
+  - Add or remove courses from the catalog
 
-Catalog Management: Acadmix empowers administrators to effortlessly manage course catalogs, ensuring accurate and up-to-date information for students and staff.
-Efficient Course Enrollment: Students can seamlessly enroll in courses through their personalized accounts, enhancing the academic experience.
+- **Semester Planning**
+  - `Semester` class that holds a student’s courses for a single term
+  - Tracks total credits and whether the student is full-time
 
-_2. Student Management:_
+- **Student Records**
+  - `Person` and `Student` classes with generated student IDs based on name + SSN
+  - Students can:
+    - Register for new semesters
+    - Enroll in courses from the catalog
+    - Drop courses (with partial tuition refund logic)
+  - Automatic update of class standing (Freshman, Sophomore, Junior, Senior) based on number of semesters
 
-Streamlined Student Enrollment: Staff can efficiently register students into the system, providing them access to essential academic resources and tools.
-Academic Progress Tracking: Students can easily monitor their academic progress, track enrolled courses, and stay informed about credit requirements.
+- **Staff & Administration**
+  - `Staff` class for staff members with IDs derived from name + SSN
+  - Staff can:
+    - Place or remove holds on students
+    - Unenroll students (set them inactive)
+    - Create new `Student` records from a `Person`
 
-_3. Financial Management:_
+- **Student Accounts & Loans**
+  - `StudentAccount` class tracks a student’s balance and loans
+  - Tuition is charged per credit (`CREDIT_PRICE = 1000`)
+  - `Loan` class creates loans with a randomly generated loan ID
+  - Loans can be applied to reduce the student’s balance
+  - Basic payment and refund logic when dropping courses
 
-Integrated Student Accounts: Each student is equipped with a personalized account to manage financial transactions, including course fees, payments, and loans.
-Simplified Loan Management: Students can apply for and manage loans directly through their accounts, facilitating smoother financial planning.
+---
 
-_4. Administrative Tools:_
+## Tech Stack
 
-Effortless Staff Management: Administrators can oversee staff accounts, assign roles, and manage administrative tasks with ease.
-Semester-wise Academic Planning: Acadmix supports semester-wise course registration, enabling efficient academic planning and scheduling for educational institutions.
+- **Language:** Python 3
+- **Paradigm:** Object-Oriented Programming (OOP)
+- **Standard Library:** `random`, file I/O
+- **Data File:** CSV (e.g., `cmpsc_catalog_small.csv` for course data)
 
-**Technologies Used:**
+No external dependencies are required; everything runs with standard Python.
 
-_Python_: Acadmix's backend logic is meticulously crafted using Python, leveraging the power of object-oriented programming for flexibility and scalability.
+---
 
-_CSV Data Handling_: Course information is stored and managed using CSV files, offering simplicity and ease of data manipulation.
+## Project Structure
 
-_User-Friendly CLI Interface_: Acadmix boasts a user-friendly Command Line Interface (CLI), ensuring accessibility and intuitiveness for users.
+A simplified version of the repo layout:
 
-**Bug Mention:**
-
-Please note that while Acadmix is designed to deliver a seamless educational experience, there may be minor bugs or issues that require attention. Rest assured, these are being actively addressed to enhance the project's functionality and user experience.
+```text
+Python_Projects/
+├── Acadmix.py                 # All core classes (Course, Catalog, Semester, Student, Staff, Loan, StudentAccount, etc.)
+├── cmpsc_catalog_small.csv    # Sample catalog data: course ID, name, credits
+└── README.md                  # Project documentation (this file)
