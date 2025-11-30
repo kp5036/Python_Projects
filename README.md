@@ -8,7 +8,9 @@ information system: adding/removing courses, registering semesters, enrolling/dr
 charging tuition, and applying loans to a student account.
 
 ---
+## Demo Video
 
+[![Watch the demo] --> https://youtu.be/9YM_wZx23n8?si=EjUyxVSufFdqLHBI )
 ## Features
 
 - **Course & Catalog Management**
