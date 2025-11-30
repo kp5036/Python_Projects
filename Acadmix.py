@@ -85,7 +85,7 @@ class Catalog:
             data = spl2.split(',')              
             if len(data) == 3:                  
                 cid, cname, credits = data     
-                self.addCourse(cid, cname, credits) 
+                self.addCourse(cid, cname, int(credits)) 
 
 class Semester:
     '''
