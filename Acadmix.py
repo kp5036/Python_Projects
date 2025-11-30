@@ -579,3 +579,59 @@ if __name__ == "__main__":
 
     print("\nFinal account summary:")
     print(s1.account)
+
+if __name__ == "__main__":
+    import os
+
+    # Safely find the CSV file in the same folder as this script
+    base_dir = os.path.dirname(__file__)
+    catalog_path = os.path.join(base_dir, "cmpsc_catalog_small.csv")
+
+    C = Catalog()
+    C._loadCatalog(catalog_path)
+
+    print("Loaded catalog:")
+    for cid, course in C.courseOfferings.items():
+        print(" ", course)
+
+    # Create a student and register a semester
+    s1 = Student("Krish Patel", "123-45-6789", "Freshman")
+    s1.registerSemester()
+    print("\nCreated student:", s1)
+
+    # Try to enroll in several courses so we (likely) reach full-time (>= 12 credits)
+    desired_courses = ["CMPSC 132", "MATH 230", "PHYS 213", "CMPEN 270"]
+
+    print("\nEnrolling in courses...")
+    for cid in desired_courses:
+        if cid in C.courseOfferings:
+            print(f"{cid}: {s1.enrollCourse(cid, C)}")
+        else:
+            print(f"{cid}: not in catalog, skipping")
+
+    # Show current semester and credits
+    current_sem = s1.semesters[len(s1.semesters)]
+    print("\nCurrent semester courses:", current_sem)
+    print("Total credits this semester:", current_sem.totalCredits)
+    print("Is full-time?:", current_sem.isFullTime)
+
+    # Show account balance after tuition charges
+    print("\nAccount balance after tuition charges:", s1.account.balance)
+
+    # Try to get a loan
+    print("\nRequesting a loan of $4000...")
+    loan_result = s1.getLoan(4000)
+
+    if loan_result == "Not full-time":
+        print("Loan not approved: student is not full-time.")
+    elif loan_result == "Unsuccessful operation":
+        print("Loan not approved: student is inactive or has a hold.")
+    else:
+        # On success, getLoan() returns None, but the balance changes
+        print("Loan applied (balance reduced by loan amount).")
+
+    print("Account balance after loan attempt:", s1.account.balance)
+
+    # Final summary
+    print("\nFinal account summary:")
+    print(s1.account)
